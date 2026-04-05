@@ -46,6 +46,38 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+
+    /* Custom project colors */
+    --color-header-from: var(--header-from);
+    --color-header-via: var(--header-via);
+    --color-header-to: var(--header-to);
+    --color-brand: var(--brand);
+    --color-brand-hover: var(--brand-hover);
+    --color-brand-dark: var(--brand-dark);
+    --color-page-bg: var(--page-bg);
+    --color-card-border: var(--card-border);
+    --color-card-border-light: var(--card-border-light);
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-muted);
+    --color-text-placeholder: var(--text-placeholder);
+    --color-nav-section: var(--nav-section);
+    --color-nav-item: var(--nav-item);
+    --color-nav-hover: var(--nav-hover);
+    --color-nav-active-bg: var(--nav-active-bg);
+    --color-nav-active-text: var(--nav-active-text);
+    --color-nav-active-border: var(--nav-active-border);
+    --color-avatar-bg: var(--avatar-bg);
+    --color-avatar-ring: var(--avatar-ring);
+    --color-avatar-text: var(--avatar-text);
+    --color-search-bg: var(--search-bg);
+    --color-search-border: var(--search-border);
+    --color-search-focus-border: var(--search-focus-border);
+    --color-header-search-bg: var(--header-search-bg);
+    --color-header-search-border: var(--header-search-border);
+    --color-header-text: var(--header-text);
+    --color-header-text-muted: var(--header-text-muted);
+    --color-kbd-bg: var(--kbd-bg);
 }
 
 :root {
@@ -55,10 +87,10 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
+    --primary: #4F46E5;
+    --primary-foreground: #FFFFFF;
+    --secondary: #1E1B4B;
+    --secondary-foreground: #FFFFFF;
     --muted: oklch(0.97 0 0);
     --muted-foreground: oklch(0.556 0 0);
     --accent: oklch(0.97 0 0);
@@ -66,21 +98,69 @@
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --ring: #4F46E5;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --sidebar: #1E1B4B;
+    --sidebar-foreground: #FFFFFF;
+    --sidebar-primary: #4F46E5;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: rgba(255, 255, 255, 0.1);
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+    --sidebar-ring: #4F46E5;
+
+    /* Header gradient */
+    --header-from: #12102d;
+    --header-via: #2c276c;
+    --header-to: #12102d;
+
+    /* Brand */
+    --brand: #4F46E5;
+    --brand-hover: #4338CA;
+    --brand-dark: #1E1B4B;
+
+    /* Page */
+    --page-bg: #FFFFFF;
+
+    /* Card */
+    --card-border: #E5E7EB;
+    --card-border-light: #F3F4F6;
+
+    /* Text */
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --text-placeholder: #9CA3AF;
+
+    /* Sidebar nav */
+    --nav-section: #9CA3AF;
+    --nav-item: #374151;
+    --nav-hover: #F3F4F6;
+    --nav-active-bg: #EEF2FF;
+    --nav-active-text: #4F46E5;
+    --nav-active-border: #4F46E5;
+
+    /* Avatar */
+    --avatar-bg: #A9A9F4;
+    --avatar-ring: #5753a6;
+    --avatar-text: #000000;
+
+    /* Search (content area) */
+    --search-bg: #FFFFFF;
+    --search-border: #D1D5DB;
+    --search-focus-border: #4F46E5;
+
+    /* Header search & text */
+    --header-search-bg: rgba(255, 255, 255, 0.15);
+    --header-search-border: rgba(255, 255, 255, 0.1);
+    --header-text: #FFFFFF;
+    --header-text-muted: rgba(255, 255, 255, 0.5);
+    --kbd-bg: rgba(255, 255, 255, 0.1);
 }
 
 .dark {
@@ -115,6 +195,10 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 @layer base {
