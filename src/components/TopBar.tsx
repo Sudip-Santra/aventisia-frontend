@@ -2,7 +2,7 @@ import { Search, Bell, ChevronDown } from "lucide-react";
 
 export default function TopBar() {
   return (
-    <header className="h-14 min-h-[56px] flex items-center rounded-lg bg-linear-to-r from-header-from via-header-via to-header-to p-5">
+    <header className="h-14 min-h-14 flex items-center rounded-lg bg-linear-to-r from-header-from via-header-via to-header-to p-5">
       {/* Left: Logo + Worcspace selector */}
       <div className="flex items-center gap-2 cursor-pointer">
         {/* Logo */}
@@ -46,7 +46,7 @@ export default function TopBar() {
           <Bell size={20} />
         </button>
         <div className="w-7 h-7 rounded-full bg-avatar-bg ring-3 ring-avatar-ring flex items-center justify-center text-avatar-text text-xs font-semibold cursor-pointer">
-          OK
+          GK
         </div>
       </div>
     </header>
