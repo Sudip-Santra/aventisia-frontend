@@ -29,7 +29,7 @@ export default function CreateKnowledgeBaseDialog({
 }: CreateKnowledgeBaseDialogProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" showCloseButton={false} className="w-xl! flex flex-col overflow-y-auto gap-0 rounded-l-lg">
+      <SheetContent side="right" showCloseButton={false} className="w-full sm:w-xl! flex flex-col overflow-y-auto gap-0 rounded-l-lg">
         <SheetHeader className="text-left px-6 py-4">
           <div className="flex items-start justify-between">
             <div>

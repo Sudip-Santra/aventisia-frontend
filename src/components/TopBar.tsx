@@ -1,29 +1,36 @@
-import { Search, Bell, ChevronDown } from "lucide-react";
+import { Search, Bell, ChevronDown, Menu } from "lucide-react";
 
-export default function TopBar() {
+interface TopBarProps {
+  onMenuClick?: () => void;
+}
+
+export default function TopBar({ onMenuClick }: TopBarProps) {
   return (
-    <header className="h-14 min-h-14 flex items-center rounded-lg bg-linear-to-r from-header-from via-header-via to-header-to p-5">
+    <header className="h-14 min-h-14 flex items-center rounded-lg bg-linear-to-r from-header-from via-header-via to-header-to px-3 md:px-5">
+      {/* Mobile menu button */}
+      <button
+        onClick={onMenuClick}
+        className="md:hidden text-header-text mr-2 cursor-pointer"
+      >
+        <Menu size={22} />
+      </button>
+
       {/* Left: Logo + Worcspace selector */}
       <div className="flex items-center gap-2 cursor-pointer">
-        {/* Logo */}
         <img
           src="/aventisia-logo.svg"
           alt="Aventisia"
           className="h-6"
         />
-
-        {/* Worcspace text */}
-        <span className="text-header-text font-semibold text-base">Worcspace</span>
-
-        {/* Worcspace 1 badge */}
-        <span className="bg-header-search-bg text-header-text text-[11px] px-2.5 py-0.5 rounded-full font-medium flex items-center gap-0.5 ml-2 cursor-pointer">
+        <span className="text-header-text font-semibold text-base hidden sm:inline">Worcspace</span>
+        <span className="bg-header-search-bg text-header-text text-[11px] px-2.5 py-0.5 rounded-full font-medium flex items-center gap-0.5 sm:ml-2 cursor-pointer">
           Worcspace 1
           <ChevronDown size={12} />
         </span>
       </div>
 
-      {/* Center: Search bar */}
-      <div className="flex-1 flex justify-center px-8">
+      {/* Center: Search bar - hidden on mobile */}
+      <div className="flex-1 hidden md:flex justify-center px-8">
         <div className="relative w-full max-w-md">
           <Search
             size={16}
@@ -40,8 +47,11 @@ export default function TopBar() {
         </div>
       </div>
 
+      {/* Spacer on mobile when search is hidden */}
+      <div className="flex-1 md:hidden" />
+
       {/* Right: Notifications & Avatar */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4 md:gap-6">
         <button className="text-header-text-muted hover:text-header-text transition-colors cursor-pointer">
           <Bell size={20} />
         </button>

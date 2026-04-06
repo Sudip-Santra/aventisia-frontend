@@ -15,6 +15,10 @@ import {
   Puzzle,
   Settings,
 } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+} from "@/components/ui/sheet";
 
 interface NavItem {
   icon: React.ElementType;
@@ -78,15 +82,43 @@ function NavSection({
   );
 }
 
-export default function Sidebar() {
+function SidebarContent({ showLogo = false }: { showLogo?: boolean }) {
   return (
-    <aside className="w-55 min-w-55 bg-search-bg border-r border-card-border flex flex-col h-full">
-      {/* Scrollable nav */}
-      <div className="flex-1 overflow-y-auto pt-5 py-2 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
+    <>
+      {showLogo && (
+        <div className="flex items-center gap-2 px-4 pt-6">
+          <img src="/aventisia-logo.svg" alt="Aventisia" className="h-6" />
+          <span className="font-semibold text-base text-text-primary">Worcspace</span>
+        </div>
+      )}
+      <div className="flex-1 overflow-y-auto py-2 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
         <NavSection title="My Projects" items={myProjects} />
         <NavSection title="Orchestrator" items={orchestrator} />
         <NavSection title="Admin" items={admin} />
       </div>
-    </aside>
+    </>
+  );
+}
+
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
+}
+
+export default function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <aside className="hidden md:flex w-55 min-w-55 bg-search-bg border-r border-card-border flex-col h-full">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile sidebar as Sheet */}
+      <Sheet open={mobileOpen} onOpenChange={onMobileClose}>
+        <SheetContent side="left" showCloseButton={false} className="w-64 p-0 bg-search-bg">
+          <SidebarContent showLogo />
+        </SheetContent>
+      </Sheet>
+    </>
   );
 }
